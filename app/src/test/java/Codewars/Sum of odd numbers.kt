@@ -14,11 +14,10 @@ package Codewars
 // 1 --> 1
 // 2 --> 3 + 5 = 8
 
-fun rowSumOddNumbers(n: Int): Int {
-    return 0
-}
+fun rowSumOddNumbers(n: Int) = n * n * n
 
 fun main() {
+    // test cases
     rowSumOddNumbers(1) // 1
     rowSumOddNumbers(2) // 8
     rowSumOddNumbers(13) // 2197
