@@ -24,19 +24,34 @@ package Codewars
 //and for any array arr: contain_all_rots("", arr) --> true
 
 fun main() {
+    // Test cases
     var a = arrayListOf("bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs")
     containAllRots("bsjq", a) // true
     a = arrayListOf("TzYxlgfnhf", "yqVAuoLjMLy", "BhRXjYA", "YABhRXj", "hRXjYAB", "jYABhRX", "XjYABhR", "ABhRXjY")
     containAllRots("XjYABhR", a) // false
 }
 
-fun containAllRots(srt: String, arr: ArrayList<String>) : Boolean {
-    var res = true
-    arr.forEach {
-        a -> a.forEach {
-            if (!srt.contains(it)) res = false
-        }
+fun containAllRots(strng:String, arr:ArrayList<String>):Boolean {
+// Initialize a variable with the original string
+    var rotatedString = strng
+
+// Create a new list and add the original string
+    val list = arrayListOf(rotatedString)
+
+// Loop through each character in the string
+    for (i in 1 until strng.length) {
+        // Rotate the string by removing the first character and adding it to the end
+        rotatedString = rotatedString.substring(1) + rotatedString[0]
+        // Add the rotated string to the list
+        list += rotatedString
     }
-    println(res)
-    return res
+
+    //    Output checking test cases
+    //    println((list - arr).isEmpty())
+
+    // Use the minus operator to remove all elements in the original list that are not in the input list
+    // Check if the resulting list is empty, if it is return true, else return false
+    return (list - arr).isEmpty()
 }
+
+// Part of code and comments was write with help ChatGPT
