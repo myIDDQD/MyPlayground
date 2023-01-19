@@ -39,11 +39,16 @@ After day 1 --> 10
 */
 
 fun growingPlant(upSpeed: Int, downSpeed: Int, desiredHeight: Int): Int {
-    return 0
+    val currentHeights = mutableListOf(0)
+    while (currentHeights.last() + upSpeed < desiredHeight) {
+        currentHeights.add(currentHeights.last() + upSpeed - downSpeed)
+    }
+    return currentHeights.size
 }
 
 fun main() {
     // Test cases
     growingPlant(100,10,910) // 10
     growingPlant(10,9,4) // 1
+    growingPlant(100, 77, 849) // 34
 }
