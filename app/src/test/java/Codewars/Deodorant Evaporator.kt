@@ -13,8 +13,20 @@ Example:
 evaporator(10, 10, 5) -> 29
  */
 
-fun evaporator(content: Double, evap_per_day: Double, threshold: Double): Int {
-    return -1;
+fun evaporator(content: Double, evapPerDay: Double, threshold: Double): Int {
+    // Calculate threshold in ml
+    val valueThreshold = content / 100 * threshold
+    // Temp content
+    var contentPerDay = content
+    var result = 0
+    while (contentPerDay > valueThreshold) {
+        contentPerDay -= contentPerDay / 100 * evapPerDay
+        result += 1
+    }
+
+// check test cases
+//    println(result)
+    return result
 }
 
 fun main() {
