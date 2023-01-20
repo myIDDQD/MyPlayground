@@ -26,10 +26,19 @@ y = 25
 z = 26
  */
 
-fun addLetters(arr: List<Char>): Char {
-    // your code here
-    return 'a'
+fun addLetters(arr: List<Char>) : Char {
+    val alphabet = 'a'..'z'
+    var index = 0
+
+    return if (arr.isNotEmpty()) {
+        arr.forEach { index += alphabet.indexOf(it) + 1 }
+        alphabet.filterIndexed { i, _ -> i == if (index > 26) index - 27 else index - 1 }.first()
+    } else {
+        'z'
+    }
 }
+// One more solution
+//fun addLetters(arr: List<Char>) = "zabcdefghijklmnopqrstuvwxy"[arr.fold(0) { acc, x -> acc + x.toInt() - 96 } % 26]
 
 fun main() {
     addLetters(listOf('a', 'b', 'c')) // 'f'
