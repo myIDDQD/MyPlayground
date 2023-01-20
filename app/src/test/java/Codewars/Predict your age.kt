@@ -17,9 +17,10 @@ predictAge(65, 60, 75, 55, 60, 63, 64, 45) === 86
  */
 
 fun predictAge(age1: Int, age2: Int, age3: Int, age4: Int, age5: Int, age6: Int, age7: Int, age8: Int): Int{
-    return 0
+    return (Math.sqrt(mutableListOf(age1, age2, age3, age4, age5, age6, age7, age8).sumOf { it * it }.toDouble()) / 2).toInt()
 }
 
 fun main() {
-
+    predictAge(65, 60, 75, 55, 60, 63, 64, 45).let(::println) // 86
+    predictAge(32, 54, 76, 65, 34, 63, 64, 45).let(::println) // 79
 }
