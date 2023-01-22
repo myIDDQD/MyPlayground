@@ -9,11 +9,7 @@ If it goes past 'z', start again at 'a'.
 Input will be a string with length > 0.
 */
 
-fun moveTen(s: String): String {
-    s.map { if (it.toInt() in 97..122 ) (it.toInt() + 10).toChar() }
-    println(s)
-    return ""
-}
+fun moveTen(s: String) = s.map { (if (it.toInt() + 10 > 122) it.toInt() + 10 - 26 else it.toInt() + 10).toChar() }.joinToString("")
 
 fun main() {
     // test cases
