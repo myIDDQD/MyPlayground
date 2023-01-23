@@ -12,8 +12,17 @@ If two words score the same, return the word that appears earliest in the origin
 All letters will be lowercase and all inputs will be valid.
  */
 
-fun high(str: String) : String {
-    return ""
+fun high(str: String): String {
+    // convert string to list
+    val maxValue = str.split(" ")
+            // convert string to characters
+        .map { s -> s
+                // find number each character
+            .map { c -> ('a'..'z').indexOf(c) + 1 } }
+            // find max sum value of word
+        .map { it.sum() }
+    // get word from index of max sum value
+    return str.split(" ")[maxValue.indexOf(maxValue.max())]
 }
 
 fun main() {
