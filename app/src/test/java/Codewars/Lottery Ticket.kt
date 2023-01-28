@@ -25,11 +25,6 @@ fun main() {
 }
 
 fun bingo(ticket: Array<Pair<String, Int>>, win: Int): String {
-    var status = "Loser!"
-    ticket[win - 1].first.forEach { if (it.code == ticket[win - 1].second) {
-        println(it.code)
-        status = "Winner!"
-    } }
-    println(status)
-    return status
+    println (if (ticket.map { p -> p.first.map { c -> c.code } to p.second }.map { it.first.contains(it.second) }.filter { it }.size >= win) "Winner!" else "Loser!")
+    return if (ticket.map { p -> p.first.map { c -> c.code } to p.second }.map { it.first.contains(it.second) }.filter { it }.size >= win) "Winner!" else "Loser!"
 }
