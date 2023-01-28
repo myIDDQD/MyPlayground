@@ -18,10 +18,18 @@ All inputs will be in the correct format. Strings on tickets are not always the 
  */
 
 fun main() {
-
+    // Tests
+    bingo(arrayOf("ABC" to 65, "HGR" to 74, "BYHT" to 74), 2) // "Loser!"
+    bingo(arrayOf("ABC" to 65, "HGR" to 74, "BYHT" to 74), 1) // "Winner!"
+    bingo(arrayOf("HGTYRE" to 74, "BE" to 66, "JKTY" to 74), 3) // "Loser!"
 }
 
 fun bingo(ticket: Array<Pair<String, Int>>, win: Int): String {
-
-    return ""
+    var status = "Loser!"
+    ticket[win - 1].first.forEach { if (it.code == ticket[win - 1].second) {
+        println(it.code)
+        status = "Winner!"
+    } }
+    println(status)
+    return status
 }
