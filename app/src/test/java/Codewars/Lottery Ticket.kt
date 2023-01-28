@@ -24,6 +24,7 @@ fun main() {
     bingo(arrayOf("HGTYRE" to 74, "BE" to 66, "JKTY" to 74), 3) // "Loser!"
 }
 
+
 fun bingo(ticket: Array<Pair<String, Int>>, win: Int): String {
     println (if (ticket.map { p -> p.first.map { c -> c.code } to p.second }.map { it.first.contains(it.second) }.filter { it }.size >= win) "Winner!" else "Loser!")
     return if (ticket.map { p -> p.first.map { c -> c.code } to p.second }.map { it.first.contains(it.second) }.filter { it }.size >= win) "Winner!" else "Loser!"
