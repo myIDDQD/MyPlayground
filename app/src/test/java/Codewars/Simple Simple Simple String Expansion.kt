@@ -37,16 +37,17 @@ fun main() {
 
 fun stringExpansion(s: String): String {
     val result = StringBuilder()
-    var repeat = 0
+    var repeat = 1
     for (c in s) {
         if (c.isDigit()) {
             repeat = 0
             repeat = repeat * 10 + (c - '0')
         } else {
-            if (repeat == 0)
+            if (repeat == 1) {
                 result.append(c)
-            else
+            } else if (repeat > 1) {
                 (0 until repeat).forEach { result.append(c) }
+            }
         }
     }
     println(result.toString())
