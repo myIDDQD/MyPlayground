@@ -21,10 +21,10 @@ fun main() {
     partlist(s1) // "[[I, wish I hadn't come], [I wish, I hadn't come], [I wish I, hadn't come], [I wish I hadn't, come]]"
 }
 
-fun partlist(arr:Array<String>): Array<Array<String>> {
-
-
-
-
-    return
+fun partlist(arr: Array<String>): Array<Array<String>> {
+    val result = mutableListOf<Array<String>>()
+    for (i in 1 until arr.size) {
+        result.add(arrayOf(arr.slice(0 until i).joinToString(" "), arr.slice(i until arr.size).joinToString(" ")))
+    }
+    return result.toTypedArray()
 }
