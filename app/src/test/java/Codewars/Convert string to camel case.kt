@@ -22,5 +22,10 @@ fun main() {
     toCamelCase("A-B-C") // "ABC"
 }
 
+fun toCamelCase(str: String) : String {
+    val result = ("[-_]").toRegex().split(str).toMutableList()
+    ("[-_]").toRegex().split(str).forEachIndexed { index, s -> if (index != 0) result[index] = s.capitalize() else result[0] }
 
-fun toCamelCase(str:String):String = ""
+    println(result.joinToString(""))
+    return result.joinToString("")
+}
